@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wasko Formulier</title>
+  <link rel="stylesheet" href="css form jb.css.css">
+</head>
+
+<body>
+
+<div class="logo">
+  <img src="https://www.jbbusinesswear.nl/uploads/Logo/JB-Businesswaer_1.png">
+</div>
+
+<div class="form-container">
+
+  <h2>Wasko Formulier 2026 Voorjaar</h2>
+
+  <form id="contactForm">
+
+    <label>Naam medewerker(ster)</label>
+    <input type="text" name="naam" required>
+
+    <label>Personeelsnummer</label>
+    <input type="text" name="personeelsnummer" required>
+
+    <label>Locatie van afleveren</label>
+    <input type="text" name="afleverloc" required>
+
+    <label>Teamleider(ster)</label>
+    <input type="text" name="teamleid" required>
+
+    <label>Naam (om te borduren)</label>
+    <input type="text" name="borduurnaam" required>
+
+    <div id="products">
+
+      <div class="product-row">
+
+        <label>Pasvorm</label>
+        <select name="pasvorm[]" class="pasvormSelect" required>
+          <option value="">Kies pasvorm</option>
+          <option value="Woman">Woman</option>
+          <option value="Unisex">Unisex</option>
+        </select>
+
+        <label>Maat</label>
+        <select name="maat[]" class="maatSelect" required>
+          <option value="">Kies maat</option>
+        </select>
+
+        <label>Product</label>
+        <select name="product[]" class="productSelect" required>
+          <option value="">Kies product</option>
+          <option value="Hoodie|35">Hoodie</option>
+          <option value="T-shirt|20">T-shirt</option>
+          <option value="Polo|25">Polo</option>
+          <option value="Jas|60">Jas</option>
+        </select>
+
+        <label>Kleur</label>
+        <select name="kleur[]" class="kleurSelect" required>
+          <option value="">Kies kleur</option>
+          <option value="Zwart">Zwart</option>
+          <option value="Blauw">Blauw</option>
+          <option value="Rood">Rood</option>
+          <option value="Wit">Wit</option>
+        </select>
+
+        <label>Aantal</label>
+        <input type="number" name="aantal[]" min="1" value="1" required>
+
+        <button type="button" class="removeProduct" style="display:none;">
+          Verwijder
+        </button>
+
+      </div>
+
+    </div>
+
+    <button type="button" id="addProduct">+ Product toevoegen</button>
+
+    <h3 id="totalPrice">Totaal: €0</h3>
+
+    <button type="submit">Versturen</button>
+
+  </form>
+
+  <p id="status"></p>
+
+  <div id="confirmPage" style="display:none;">
+    <h2>Controleer bestelling</h2>
+    <div id="confirmData"></div>
+    <button id="confirmSend">Definitief verzenden</button>
+    <button id="goBack">Terug</button>
+  </div>
+
+  <div id="afterSubmit" style="display:none;">
+    <p>Verzonden!</p>
+    <button id="resetBtn">Opnieuw</button>
+  </div>
+
+</div>
+
+<script src="JS FORM JB.js"></script>
+
+</body>
+</html>
