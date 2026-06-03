@@ -4,106 +4,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wasko Formulier</title>
-  <link rel="stylesheet" href="css form jb.css">
+
+  <link rel="stylesheet" href="css form jb.css.css">
 </head>
 
 <body>
 
-<div class="logo">
-  <img src="https://www.jbbusinesswear.nl/uploads/Logo/JB-Businesswaer_1.png">
-</div>
+  <div class="logo">
+    <img src="https://www.jbbusinesswear.nl/uploads/Logo/JB-Businesswaer_1.png" alt="Logo">
+  </div>
 
-<div class="form-container">
+  <div class="form-container">
 
-  <h2>Wasko Formulier 2026 Voorjaar</h2>
+    <h2>Wasko Formulier 2026 Voorjaar</h2>
 
-  <form id="contactForm">
+    <form id="contactForm">
 
-    <label>Naam medewerker(ster)</label>
-    <input type="text" name="naam" required>
+      <label for="naam">Naam medewerker(ster)</label>
+      <input type="text" id="naam" name="naam" required>
 
-    <label>Personeelsnummer</label>
-    <input type="text" name="personeelsnummer" required>
+      <div class="label-row">
+        <label for="personeelsnummer">Personeelsnummer</label>
 
-    <label>Locatie van afleveren</label>
-    <input type="text" name="afleverloc" required>
+        <span class="info-icon" onclick="toggleInfo(event)">i</span>
+      </div>
 
-    <label>Teamleider(ster)</label>
-    <input type="text" name="teamleid" required>
+      <div class="info-box" id="info-personeelsnummer">
+        Je personeelsnummer is te vinden op je Salarisstrook. Het is een uniek nummer wat aan u staat gekoppeld.
+      </div>
+      <input type="text" id="personeelsnummer" name="personeelsnummer" required>
 
-    <label>Naam (om te borduren)</label>
-    <input type="text" name="borduurnaam" required>
+      <label for="afleverloc">Locatie van afleveren</label>
+      <input type="text" id="afleverloc" name="afleverloc" required>
 
-    <div id="products">
+      <label for="teamleid">Teamleider(ster)</label>
+      <input type="text" id="teamleid" name="teamleid" required>
 
-      <div class="product-row">
+      <label for="borduurnaam">Naam (om te borduren)</label>
+      <input type="text" id="borduurnaam" name="borduurnaam" required>
 
-        <label>Pasvorm</label>
-        <select name="pasvorm[]" class="pasvormSelect" required>
-          <option value="">Kies pasvorm</option>
-          <option value="Woman">Woman</option>
-          <option value="Unisex">Unisex</option>
-        </select>
+      <div id="products">
 
-        <label>Maat</label>
-        <select name="maat[]" class="maatSelect" required>
-          <option value="">Kies maat</option>
-        </select>
+        <div class="product-row">
 
-        <label>Product</label>
-        <select name="product[]" class="productSelect" required>
-          <option value="">Kies product</option>
-          <option value="Hoodie|35">Hoodie</option>
-          <option value="T-shirt|20">T-shirt</option>
-          <option value="Polo|25">Polo</option>
-          <option value="Jas|60">Jas</option>
-        </select>
+          <label>Pasvorm</label>
+          <select name="pasvorm[]" class="pasvormSelect" required>
+            <option value="">Kies pasvorm</option>
+            <option value="Woman">Woman</option>
+            <option value="Unisex">Unisex</option>
+          </select>
 
-        <label>Kleur</label>
-        <select name="kleur[]" class="kleurSelect" required>
-          <option value="">Kies kleur</option>
-          <option value="Zwart">Zwart</option>
-          <option value="Blauw">Blauw</option>
-          <option value="Rood">Rood</option>
-          <option value="Wit">Wit</option>
-        </select>
+          <label>Maat</label>
+          <select name="maat[]" class="maatSelect" required>
+            <option value="">Kies maat</option>
+          </select>
 
-        <label>Aantal</label>
-        <input type="number" name="aantal[]" min="1" value="1" required>
+          <label>Product</label>
+          <select name="product[]" class="productSelect" required>
+            <option value="">Kies product</option>
+            <option value="Advantage dress printer|71.39">Advantage dress printer</option>
+            <option value="cottover hoody printer|52.94">Cottover hoody printer</option>
+            <option value="fz hoody cottover|62.98">Fz hoody cottover</option>
+            <option value="polo korte mouw cottover|30.61">Polo korte mouw cottover</option>
+            <option value="polo lange mouw cottover|39.33">Polo lange mouw cottover</option>
+            <option value="trui ronde hals cottover|41.93">Trui ronde hals cottover</option>
+            <option value="t-shirt lange mouw cottover|21.72">T-shirt lange mouw cottover</option>
+            <option value="t-shirt korte mouw cottover|16.40">T-shirt korte mouw cottover</option>
+            <option value="t-shirt korte mouw v-hals cottover|16.40">T-shirt korte mouw v-hals cottover</option>
+            <option value="fleece printer|37.87">Fleece printer</option>
+            <option value="hoody printer|44.95">Hoody printer</option>
+            <option value="overhead printer|51.85">Overhead printer</option>
+            <option value="javelin printer|48.94">Javelin printer</option>
+            <option value="t-shirt v-hals en rond printer|10.35">T-shirt v-hals en rond printer</option>
+            <option value="polo korte mouw printer|20.75">Polo korte mouw printer</option>
+            <option value="trial printer|79.07">Trial printer</option>
+            <option value="expedition printer|79.07">Expedition printer</option>
+            <option value="jog printer|69.51">Jog printer</option>
+            <option value="bodywarmer trail printer|60.14">Bodywarmer trail printer</option>
+            <option value="t-shirt lange mouw printer|20.27">T-shirt lange mouw printer</option>
+            <option value="polo shirt lange mouw printer|35.94">Polo shirt lange mouw printer</option>
+            <option value="softball printer|33.03">Softball printer</option>
+            <option value="hemd printer|9.56">Hemd printer</option>
 
-        <button type="button" class="removeProduct" style="display:none;">
-          Verwijder
-        </button>
+          </select>
+
+          <label>Kleur</label>
+          <select name="kleur[]" class="kleurSelect" required>
+            <option value="">Kies kleur</option>
+            <option value="Zwart">Zwart</option>
+            <option value="Blauw">Blauw</option>
+            <option value="Rood">Rood</option>
+            <option value="Wit">Wit</option>
+          </select>
+
+          <label>Aantal</label>
+          <input type="number" name="aantal[]" min="1" value="1" required>
+
+          <button type="button" class="removeProduct" style="display:none;">
+            Verwijder
+          </button>
+
+        </div>
 
       </div>
 
+      <button type="button" id="addProduct">+ Product toevoegen</button>
+
+      <h3 id="totalPrice">Totaal: €0.00</h3>
+
+      <button type="submit">Versturen</button>
+
+    </form>
+
+    <p id="status"></p>
+
+    <div id="confirmPage" style="display:none;">
+      <h2>Controleer bestelling</h2>
+      <div id="confirmData"></div>
+      <button id="confirmSend">Definitief verzenden</button>
+      <button id="goBack" type="button">Terug</button>
     </div>
 
-    <button type="button" id="addProduct">+ Product toevoegen</button>
+    <div id="afterSubmit" style="display:none;">
+      <p>Verzonden!</p>
+      <button id="resetBtn" type="button">Opnieuw</button>
+    </div>
 
-    <h3 id="totalPrice">Totaal: €0</h3>
-
-    <button type="submit">Versturen</button>
-
-  </form>
-
-  <p id="status"></p>
-
-  <div id="confirmPage" style="display:none;">
-    <h2>Controleer bestelling</h2>
-    <div id="confirmData"></div>
-    <button id="confirmSend">Definitief verzenden</button>
-    <button id="goBack">Terug</button>
   </div>
 
-  <div id="afterSubmit" style="display:none;">
-    <p>Verzonden!</p>
-    <button id="resetBtn">Opnieuw</button>
-  </div>
-
-</div>
-
-<script src="JS FORM JB.js"></script>
+  <script src="JS FORM JB.js"></script>
 
 </body>
 </html>
