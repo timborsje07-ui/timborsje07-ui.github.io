@@ -1,3 +1,4 @@
+console.log("JS IS GELADEN");
 const form = document.getElementById("contactForm");
 const totalPriceEl = document.getElementById("totalPrice");
 const status = document.getElementById("status");
