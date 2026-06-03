@@ -253,8 +253,9 @@ form.addEventListener("submit", (e) => {
 
   html += `<h2>Totaal: €${total.toFixed(2)}</h2>`;
  
-  let html = "<p>Bij verzenden ga je akkoord met de bestelling en word het bedrag verrekend met je bruto salaris. Het verzenden kan een paar seconden duren.</p>";
-
+  html += `
+  <p>Bij verzenden ga je akkoord met de bestelling en wordt het bedrag verrekend met je bruto salaris. Het verzenden kan een paar seconden duren.</p>
+  `;
   document.getElementById("confirmData").innerHTML = html;
 
   form.style.display = "none";
@@ -306,3 +307,5 @@ document.addEventListener("click", (e) => {
     box.classList.remove("show");
   }
 });
+window.addEventListener("DOMContentLoaded", () => {
+  });
