@@ -262,10 +262,7 @@ form.addEventListener("submit", (e) => {
 document.getElementById("confirmSend").addEventListener("click", () => {
   fetch("https://script.google.com/macros/s/AKfycbwXHE82crFqEVAd58P00kC17kdGCCeDNz9KhQDe8h-yZUJ5mLAIWMPNNZ3eMq3hqYkfVw/exec", {
     method: "POST",
-    body: JSON.stringify(savedData),
-    headers: {
-      "Content-Type": "application/json"
-    }
+    body: JSON.stringify(savedData)
   })
   .then(res => res.text())
   .then(() => {
