@@ -7,13 +7,13 @@ let savedData = null;
 const productColors = {
   "Advantage dress printer": ["Zwart", "Blauw"],
   "cottover hoody printer": ["Zwart", "Blauw"],
-  "fz hoody cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
-  "polo korte mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
-  "polo lange mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
-  "trui ronde hals cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
-  "t-shirt lange mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
-  "t-shirt korte mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
-  "t-shirt korte mouw v-hals cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "fz hoody cottover": ["Roze", "Geel", "Paars"],
+  "polo korte mouw cottover": ["Roze", "Geel", "Paars"],
+  "polo lange mouw cottover": ["Roze", "Geel", "Paars"],
+  "trui ronde hals cottover": ["Roze", "Geel", "Paars"],
+  "t-shirt lange mouw cottover": ["Roze", "Geel", "Paars"],
+  "t-shirt korte mouw cottover": ["Roze", "Geel", "Paars"],
+  "t-shirt korte mouw v-hals cottover": ["Roze", "Geel", "Paars"],
   "fleece printer": ["Zwart", "Blauw"],
   "hoody printer": ["Zwart", "Blauw"],
   "overhead printer": ["Zwart", "Blauw"],
@@ -27,7 +27,7 @@ const productColors = {
   "t-shirt lange mouw printer": ["Zwart", "Blauw"],
   "polo shirt lange mouw printer": ["Zwart", "Blauw"],
   "softball printer": ["Zwart", "Blauw"],
-  "hemd printer": ["Zwart", "Blauw"]
+  "hemd clique": ["Zwart"]
 };
 
 // ---------------- TOTAL ----------------
