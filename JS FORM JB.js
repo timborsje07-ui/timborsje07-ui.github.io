@@ -59,8 +59,8 @@ document.addEventListener("change", (e) => {
 
   let maten = [];
 
-  if (e.target.value === "Unisex") maten = ["S", "M" , "L", "XL", "xxl", "xxxl"];
-  if (e.target.value === "Woman") maten = ["XS", "S", "M" , "L", "XL", "xxl"];
+  if (e.target.value === "Unisex") maten = ["S", "M" , "L", "XL", "xxl", "XXXl"];
+  if (e.target.value === "Woman") maten = ["XS", "S", "M" , "L", "XL", "XXl"];
 
   maatSelect.innerHTML = `<option value="">Kies maat</option>`;
 
