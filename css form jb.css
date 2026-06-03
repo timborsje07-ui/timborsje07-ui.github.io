@@ -83,3 +83,34 @@ button:hover {
 .removeProduct:hover {
   background-color: darkred;
 }
+.info-icon {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  border:#333 1px solid;
+  border-radius: 25%;
+  width: 60px;
+  padding: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.info-box {
+  display: none;
+  margin: 5px 0 10px 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 13px;
+
+  position: relative;
+  z-index: 10;
+}
+
+.info-box.show {
+  display: block;
+}
