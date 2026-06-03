@@ -136,7 +136,7 @@ document.getElementById("addProduct").addEventListener("click", () => {
       <option value="t-shirt lange mouw printer|20.27">T-shirt lange mouw printer</option>
       <option value="polo shirt lange mouw printer|35.94">Polo shirt lange mouw printer</option>
       <option value="softball printer|33.03">Softball printer</option>
-      <option value="hemd printer|9.56">Hemd printer</option>
+      <option value="hemd clique|9.56">Hemd clique</option>
     </select>
 
     <label>Kleur</label>
