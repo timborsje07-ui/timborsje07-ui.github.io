@@ -226,7 +226,8 @@ window.addEventListener("DOMContentLoaded", () => {
       aantallen,
       maten,
       pasvormen,
-      subtotals
+      subtotals,
+      total(total.toFixed(2))
     };
   
     let html = "<h3>Bestelling</h3>";
