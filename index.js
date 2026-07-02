@@ -215,21 +215,6 @@ window.addEventListener("DOMContentLoaded", () => {
       return price * (aantallen[i] || 0);
     });
   
-    savedData = {
-      naam: form.querySelector('input[name="naam"]').value,
-      personeelsnummer: form.querySelector('input[name="personeelsnummer"]').value,
-      afleverloc: form.querySelector('input[name="afleverloc"]').value,
-      teamleid: form.querySelector('input[name="teamleid"]').value,
-      borduurnaam: form.querySelector('input[name="borduurnaam"]').value,
-      producten,
-      kleuren,
-      aantallen,
-      maten,
-      pasvormen,
-      subtotals,
-      total(total.toFixed(2))
-    };
-  
     let html = "<h3>Bestelling</h3>";
     let total = 0;
   
@@ -254,6 +239,21 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   
     html += `<h2>Totaal: €${total.toFixed(2)}</h2>`;
+
+    savedData = {
+      naam: form.querySelector('input[name="naam"]').value,
+      personeelsnummer: form.querySelector('input[name="personeelsnummer"]').value,
+      afleverloc: form.querySelector('input[name="afleverloc"]').value,
+      teamleid: form.querySelector('input[name="teamleid"]').value,
+      borduurnaam: form.querySelector('input[name="borduurnaam"]').value,
+      producten,
+      kleuren,
+      aantallen,
+      maten,
+      pasvormen,
+      subtotals,
+      total: total.toFixed(2))
+    };
    
     html += `
     <p>Bij verzenden ga je akkoord met de bestelling en wordt het bedrag verrekend met je bruto salaris. Het verzenden kan een paar seconden duren.</p>
@@ -289,7 +289,7 @@ window.addEventListener("DOMContentLoaded", () => {
   calculateTotal();
   
   // INFO BALLON PERSONEELSNUMMER
-  function toggleInfo(event) {
+  window.toggleInfo = function(event) {
     event.stopPropagation();
   
     const box = document.getElementById("info-personeelsnummer");
