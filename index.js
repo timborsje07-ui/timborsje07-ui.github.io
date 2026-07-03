@@ -252,7 +252,7 @@ window.addEventListener("DOMContentLoaded", () => {
       maten,
       pasvormen,
       subtotals,
-      total: total.toFixed(2))
+      total: total.toFixed(2)
     };
    
     html += `
