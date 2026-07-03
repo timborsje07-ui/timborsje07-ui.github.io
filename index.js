@@ -310,3 +310,19 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// INFO ICOON
+const infoIcon = document.getElementById("infoIcon");
+const infoBox = document.getElementById("info-personeelsnummer");
+
+infoIcon.addEventListener("click", function (e) {
+  e.stopPropagation();
+  infoBox.classList.toggle("show");
+});
+
+document.addEventListener("click", function () {
+  infoBox.classList.remove("show");
+});
+
+infoBox.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
