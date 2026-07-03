@@ -266,19 +266,25 @@ window.addEventListener("DOMContentLoaded", () => {
   
   // ---------------- SEND ----------------
   document.getElementById("confirmSend").addEventListener("click", () => {
-    fetch("https://script.google.com/macros/s/AKfycbwXHE82crFqEVAd58P00kC17kdGCCeDNz9KhQDe8h-yZUJ5mLAIWMPNNZ3eMq3hqYkfVw/exec", {
-      method: "POST",
-      body: JSON.stringify(savedData)
-    })
-    .then(res => res.text())
-    .then(() => {
-      document.getElementById("confirmPage").style.display = "none";
-      document.getElementById("afterSubmit").style.display = "block";
-    })
-    .catch(() => {
-      status.innerText = "Fout bij verzenden";
-    });
+  fetch("https://script.google.com/macros/s/AKfycbwXHE82crFqEVAd58P00kC17kdGCCeDNz9KhQDe8h-yZUJ5mLAIWMPNNZ3eMq3hqYkfVw/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(savedData)
+  })
+  .then(res => res.text())
+  .then(data => {
+    console.log("Response:", data);
+
+    document.getElementById("confirmPage").style.display = "none";
+    document.getElementById("afterSubmit").style.display = "block";
+  })
+  .catch(err => {
+    console.log("FOUT:", err);
+    status.innerText = "Fout bij verzenden";
   });
+});
   
   // ---------------- RESET ----------------
   document.getElementById("resetBtn").addEventListener("click", () => {
