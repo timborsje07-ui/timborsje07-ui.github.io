@@ -1,70 +1,119 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wasko Formulier</title>
+const form = document.getElementById("contactForm");
+const totalPriceEl = document.getElementById("totalPrice");
+const status = document.getElementById("status");
 
-  <link rel="stylesheet" href="css form jb.css.css">
-</head>
+let savedData = null;
 
-<body>
+const productColors = {
+  "Advantage dress printer": ["Zwart"],
+  //"cottover hoody": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "fz hoody cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "polo korte mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "polo lange mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "trui ronde hals cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "t-shirt lange mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "t-shirt korte mouw cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  //"t-shirt korte mouw v-hals cottover": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  "fleece printer": ["Zwart", "Blauw"],
+  "hoody clique": ["Roze", "Geel", "Paars", "Zwart", "Blauw"],
+  //"overhead printer": ["Zwart", "Blauw"],
+  "javelin printer": ["Zwart", "Blauw"],
+  //"t-shirt v-hals en rond printer": ["Zwart", "Blauw"],
+  //"polo korte mouw printer": ["Zwart", "Blauw"],
+  "trial printer": ["Zwart", "Blauw"],
+  "expedition printer": ["Zwart", "Blauw"],
+  "jog printer": ["Zwart", "Blauw"],
+  //"bodywarmer trail printer": ["Zwart", "Blauw"],
+  //"t-shirt lange mouw printer": ["Zwart", "Blauw"],
+  //"polo shirt lange mouw printer": ["Zwart", "Blauw"],
+  "softball printer": ["Zwart", "Blauw"],
+  "hemd printer": ["Zwart"]
+};
 
-  <div class="logo">
-    <img src="https://www.jbbusinesswear.nl/uploads/Logo/JB-Businesswaer_1.png" alt="Logo">
-  </div>
+// ---------------- TOTAL ----------------
+function calculateTotal() {
+  let total = 0;
 
-  <div class="form-container">
+  document.querySelectorAll(".product-row").forEach(row => {
+    const productEl = row.querySelector('select[name="product[]"]');
+    const qtyEl = row.querySelector('input[name="aantal[]"]');
 
-    <h2>Wasko Formulier 2026 Voorjaar</h2>
+    if (!productEl || !qtyEl) return;
 
-    <form id="contactForm">
+    const value = productEl.value || "";
+    const price = parseFloat(value.split("|")[1]) || 0;
+    const qty = parseInt(qtyEl.value) || 0;
 
-      <label for="naam">Naam medewerker(ster)</label>
-      <input type="text" id="naam" name="naam" required>
+    total += price * qty;
+  });
 
-      <div class="label-row">
-        <label for="personeelsnummer">Personeelsnummer</label>
+  totalPriceEl.innerText = "Totaal: €" + total.toFixed(2);
+}
 
-        <span class="info-icon" onclick="toggleInfo(event)">i</span>
-      </div>
+// ---------------- MAAT LOGICA ----------------
+document.addEventListener("change", (e) => {
+  if (!e.target.classList.contains("pasvormSelect")) return;
 
-      <div class="info-box" id="info-personeelsnummer">
-        Je personeelsnummer is te vinden op je Salarisstrook. Het is een uniek nummer wat aan u staat gekoppeld.
-      </div>
-      <input type="text" id="personeelsnummer" name="personeelsnummer" required>
+  const row = e.target.closest(".product-row");
+  const maatSelect = row.querySelector(".maatSelect");
 
-      <label for="afleverloc">Locatie van afleveren</label>
-      <input type="text" id="afleverloc" name="afleverloc" required>
+  let maten = [];
 
-      <label for="teamleid">Teamleider(ster)</label>
-      <input type="text" id="teamleid" name="teamleid" required>
+  if (e.target.value === "Unisex") maten = ["XS", "S", "M" , "L", "XL"];
+  if (e.target.value === "Woman") maten = ["XS", "S", "M" , "L", "XL"];
 
-      <label for="borduurnaam">Naam (om te borduren)</label>
-      <input type="text" id="borduurnaam" name="borduurnaam" required>
+  maatSelect.innerHTML = `<option value="">Kies maat</option>`;
 
-      <label for="email">E-mailadres</label>
-      <input type="email" id="email" name="email" required>
+  maten.forEach(m => {
+    const opt = document.createElement("option");
+    opt.value = m;
+    opt.textContent = m;
+    maatSelect.appendChild(opt);
+  });
+});
 
-      <div id="products">
+// ---------------- KLEUR LOGICA ----------------
+document.addEventListener("change", (e) => {
+  if (!e.target.matches('select[name="product[]"]')) return;
 
-        <div class="product-row">
+  const row = e.target.closest(".product-row");
+  const kleurSelect = row.querySelector('select[name="kleur[]"]');
 
-          <label>Pasvorm</label>
-          <select name="pasvorm[]" class="pasvormSelect" required>
-            <option value="">Kies pasvorm</option>
-            <option value="Woman">Woman</option>
-            <option value="Unisex">Unisex</option>
-          </select>
+  const productName = e.target.value.split("|")[0];
 
-          <label>Maat</label>
-          <select name="maat[]" class="maatSelect" required>
-            <option value="">Kies maat</option>
-          </select>
+  kleurSelect.innerHTML = '<option value="">Kies kleur</option>';
 
-          <label>Product</label>
-          <select name="product[]" class="productSelect" required>
-            <option value="">Kies product</option>
+  const kleuren = productColors[productName] || ["Standaard kleur"];
+
+  kleuren.forEach(kleur => {
+    const option = document.createElement("option");
+    option.value = kleur;
+    option.textContent = kleur;
+    kleurSelect.appendChild(option);
+  });
+});
+
+// ---------------- ADD PRODUCT ----------------
+document.getElementById("addProduct").addEventListener("click", () => {
+  const row = document.createElement("div");
+  row.classList.add("product-row");
+
+  row.innerHTML = `
+    <label>Pasvorm</label>
+    <select name="pasvorm[]" class="pasvormSelect" required>
+      <option value="">Kies pasvorm</option>
+      <option value="Woman">Woman</option>
+      <option value="Unisex">Unisex</option>
+    </select>
+
+    <label>Maat</label>
+    <select name="maat[]" class="maatSelect" required>
+      <option value="">Kies maat</option>
+    </select>
+
+    <label>Product</label>
+    <select name="product[]" required>
+      <option value="">Kies product</option>
             <option value="Jurkje van Cutter & Buck|71.39">Jurkje van Cutter & Buck</option>
             <!-- <option value="cottover hoody |44.95">Cottover hoody </option> -->
             <option value="fz hoody cottover|51.85">Fz hoody cottover</option>
@@ -88,55 +137,173 @@
            <!-- <option value="polo shirt lange mouw printer|35.94">Polo shirt lange mouw printer</option> -->
             <option value="softshell printer|79.07">Softshell printer</option>
             <option value="hemd printer|9.56">Hemd printer</option>
+    </select>
 
-          </select>
+    <label>Kleur</label>
+    <select name="kleur[]" required>
+      <option value="">Kies kleur</option>
+      <option value="Zwart">Zwart</option>
+      <option value="Blauw">Blauw</option>
+      <option value="Rood">Rood</option>
+      <option value="Wit">Wit</option>
+    </select>
 
-          <label>Kleur</label>
-          <select name="kleur[]" class="kleurSelect" required>
-            <option value="">Kies kleur</option>
-            <option value="Zwart">Zwart</option>
-            <option value="Blauw">Blauw</option>
-            <option value="Rood">Rood</option>
-            <option value="Wit">Wit</option>
-          </select>
+    <label>Aantal</label>
+    <input type="number" name="aantal[]" min="1" value="1" required>
 
-          <label>Aantal</label>
-          <input type="number" name="aantal[]" min="1" value="1" required>
+    <button type="button" class="removeProduct">Verwijder</button>
+  `;
 
-          <button type="button" class="removeProduct" style="display:none;">
-            Verwijder
-          </button>
+  document.getElementById("products").appendChild(row);
 
-        </div>
+  row.querySelectorAll("input, select").forEach(el => {
+    el.addEventListener("input", calculateTotal);
+    el.addEventListener("change", calculateTotal);
+  });
 
+  calculateTotal();
+});
+
+// ---------------- REMOVE ----------------
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("removeProduct")) {
+    e.target.closest(".product-row").remove();
+    calculateTotal();
+  }
+});
+
+// ---------------- LIVE TOTAL ----------------
+document.addEventListener("input", (e) => {
+  if (e.target.name === "aantal[]") {
+    calculateTotal();
+  }
+});
+
+document.addEventListener("change", (e) => {
+  if (
+    e.target.name === "product[]" ||
+    e.target.name === "aantal[]"
+  ) {
+    calculateTotal();
+  }
+});
+
+// ---------------- SUBMIT ----------------
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const rows = document.querySelectorAll(".product-row");
+
+  const producten = [];
+  const kleuren = [];
+  const aantallen = [];
+  const maten = [];
+  const pasvormen = [];
+
+  rows.forEach(row => {
+    producten.push(row.querySelector('select[name="product[]"]').value);
+    kleuren.push(row.querySelector('select[name="kleur[]"]').value);
+    aantallen.push(Number(row.querySelector('input[name="aantal[]"]').value));
+    maten.push(row.querySelector('select[name="maat[]"]').value);
+    pasvormen.push(row.querySelector('select[name="pasvorm[]"]').value);
+  });
+
+  const subtotals = producten.map((p, i) => {
+    const price = parseFloat(p.split("|")[1]) || 0;
+    return price * (aantallen[i] || 0);
+  });
+
+  savedData = {
+    naam: form.querySelector('input[name="naam"]').value,
+    personeelsnummer: form.querySelector('input[name="personeelsnummer"]').value,
+    afleverloc: form.querySelector('input[name="afleverloc"]').value,
+    teamleid: form.querySelector('input[name="teamleid"]').value,
+    borduurnaam: form.querySelector('input[name="borduurnaam"]').value,
+    email: form.querySelector('input[name="email"]').value,
+    producten,
+    kleuren,
+    aantallen,
+    maten,
+    pasvormen,
+    subtotals
+  };
+
+  let html = "<h3>Bestelling</h3>";
+  let total = 0;
+
+  for (let i = 0; i < producten.length; i++) {
+    const name = producten[i].split("|")[0];
+    const price = parseFloat(producten[i].split("|")[1]) || 0;
+    const sub = price * aantallen[i];
+
+    total += sub;
+
+    html += `
+      <div>
+        <b>${name}</b><br>
+        Pasvorm: ${pasvormen[i]}<br>
+        Maat: ${maten[i]}<br>
+        Kleur: ${kleuren[i]}<br>
+        Aantal: ${aantallen[i]}<br>
+        Subtotaal: €${sub.toFixed(2)}
       </div>
+      <hr>
+    `;
+  }
 
-      <button type="button" id="addProduct">+ Product toevoegen</button>
+  html += `<h2>Totaal: €${total.toFixed(2)}</h2>`;
 
-      <h3 id="totalPrice">Totaal: €0.00</h3>
+  document.getElementById("confirmData").innerHTML = html;
 
-      <button type="submit">Versturen</button>
+  form.style.display = "none";
+  document.getElementById("confirmPage").style.display = "block";
+});
 
-    </form>
+// ---------------- SEND ----------------
+document.getElementById("confirmSend").addEventListener("click", () => {
+  fetch("https://script.google.com/macros/s/AKfycbzbGrNnD8orgmGgH6clv_TX0qcAVMxFfP2H97_p2bUfCI0dBsH8qUrs6LocPk-ZZ9kbag/exec", {
+    method: "POST",
+    body: JSON.stringify(savedData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.text())
+  .then(() => {
+    document.getElementById("confirmPage").style.display = "none";
+    document.getElementById("afterSubmit").style.display = "block";
+  })
+  .catch(() => {
+    status.innerText = "Fout bij verzenden";
+  });
+});
 
-    <p id="status"></p>
+// ---------------- RESET ----------------
+document.getElementById("resetBtn").addEventListener("click", () => {
+  location.reload();
+});
 
-    <div id="confirmPage" style="display:none;">
-      <h2>Controleer bestelling</h2>
-      <p>Het verzenden kan even duren graag geduldig.</p>
-      <div id="confirmData"></div>
-      <button id="confirmSend">Definitief verzenden</button>
-      <button id="goBack" type="button">Terug</button>
-    </div>
+// INIT
+calculateTotal();
 
-    <div id="afterSubmit" style="display:none;">
-      <p>Verzonden!</p>
-      <button id="resetBtn" type="button">Opnieuw</button>
-    </div>
+// INFO BALLON PERSONEELSNUMMER
+function toggleInfo(event) {
+  event.stopPropagation();
 
-  </div>
+  const box = document.getElementById("info-personeelsnummer");
 
-  <script src="JS FORM JB.js"></script>
+  if (!box) return;
 
-</body>
-</html>
+  box.classList.toggle("show");
+}
+
+// klik buiten = sluiten
+document.addEventListener("click", (e) => {
+  const box = document.getElementById("info-personeelsnummer");
+
+  if (!box) return;
+
+  if (!box.contains(e.target)) {
+    box.classList.remove("show");
+  }
+});
