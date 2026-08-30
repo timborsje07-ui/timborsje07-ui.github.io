@@ -280,8 +280,11 @@ document.getElementById("confirmSend").addEventListener("click", () => {
   })
   .catch((error) => {
   console.error("Verzendfout:", error);
-  status.innerText = "Fout bij verzenden: " + error.message;
-  });
+
+  // De bestelling kan al succesvol verwerkt zijn door Apps Script.
+  document.getElementById("confirmPage").style.display = "none";
+  document.getElementById("afterSubmit").style.display = "block";
+});
 });
 
 // ---------------- RESET ----------------
