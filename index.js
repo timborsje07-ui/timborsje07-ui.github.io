@@ -59,8 +59,13 @@ document.addEventListener("change", (e) => {
 
   let maten = [];
 
-  if (e.target.value === "Unisex") maten = ["XS", "S", "M" , "L", "XL"];
-  if (e.target.value === "Woman") maten = ["XS", "S", "M" , "L", "XL"];
+  if (e.target.value === "Unisex") {
+    maten = ["XS", "S", "M", "L", "XL"];
+  }
+
+  if (e.target.value === "Woman") {
+    maten = ["XS", "S", "M", "L", "XL"];
+  }
 
   maatSelect.innerHTML = `<option value="">Kies maat</option>`;
 
@@ -114,29 +119,29 @@ document.getElementById("addProduct").addEventListener("click", () => {
     <label>Product</label>
     <select name="product[]" required>
       <option value="">Kies product</option>
-            <option value="Jurkje van Cutter & Buck|71.39">Jurkje van Cutter & Buck</option>
-            <!-- <option value="cottover hoody |44.95">Cottover hoody </option> -->
-            <option value="fz hoody cottover|51.85">Fz hoody cottover</option>
-            <option value="polo korte mouw cottover|20.75">Polo korte mouw cottover</option>
-            <option value="polo lange mouw cottover|35.94">Polo lange mouw cottover</option>
-            <option value="trui ronde hals cottover|33.03">Trui ronde hals cottover</option>
-            <option value="t-shirt lange mouw cottover|20.27">T-shirt lange mouw cottover</option>
-            <option value="t-shirt korte mouw cottover|10.35">T-shirt korte mouw cottover</option>
-            <!-- <option value="t-shirt korte mouw v-hals cottover|16.40">T-shirt korte mouw v-hals cottover</option> -->
-            <option value="fleece printer|37.87">Fleece printer</option>
-            <option value="hoody clique|44.95">Hoody clique</option>
-            <!-- <option value="overhead printer|44.95">Overhead printer</option> -->
-            <option value="javelin printer|48.94">Javelin printer</option>
-            <!-- <option value="t-shirt v-hals en rond printer|10.35">T-shirt v-hals en rond printer</option> -->
-            <!-- <option value="polo korte mouw printer|20.75">Polo korte mouw printer</option> -->
-            <option value="trial printer|60.14">Trial printer</option>
-            <option value="expedition printer|60.14">Expedition printer</option>
-            <option value="jog printer|79.07">Jog printer</option>
-            <!-- <option value="bodywarmer trail printer|60.14">Bodywarmer trail printer</option> -->
-            <!-- <option value="t-shirt lange mouw printer|20.27">T-shirt lange mouw printer</option> -->
-           <!-- <option value="polo shirt lange mouw printer|35.94">Polo shirt lange mouw printer</option> -->
-            <option value="softshell printer|79.07">Softshell printer</option>
-            <option value="hemd printer|9.56">Hemd printer</option>
+      <option value="Jurkje van Cutter & Buck|71.39">Jurkje van Cutter & Buck</option>
+      <!-- <option value="cottover hoody |44.95">Cottover hoody </option> -->
+      <option value="fz hoody cottover|51.85">Fz hoody cottover</option>
+      <option value="polo korte mouw cottover|20.75">Polo korte mouw cottover</option>
+      <option value="polo lange mouw cottover|35.94">Polo lange mouw cottover</option>
+      <option value="trui ronde hals cottover|33.03">Trui ronde hals cottover</option>
+      <option value="t-shirt lange mouw cottover|20.27">T-shirt lange mouw cottover</option>
+      <option value="t-shirt korte mouw cottover|10.35">T-shirt korte mouw cottover</option>
+      <!-- <option value="t-shirt korte mouw v-hals cottover|16.40">T-shirt korte mouw v-hals cottover</option> -->
+      <option value="fleece printer|37.87">Fleece printer</option>
+      <option value="hoody clique|44.95">Hoody clique</option>
+      <!-- <option value="overhead printer|44.95">Overhead printer</option> -->
+      <option value="javelin printer|48.94">Javelin printer</option>
+      <!-- <option value="t-shirt v-hals en rond printer|10.35">T-shirt v-hals en rond printer</option> -->
+      <!-- <option value="polo korte mouw printer|20.75">Polo korte mouw printer</option> -->
+      <option value="trial printer|60.14">Trial printer</option>
+      <option value="expedition printer|60.14">Expedition printer</option>
+      <option value="jog printer|79.07">Jog printer</option>
+      <!-- <option value="bodywarmer trail printer|60.14">Bodywarmer trail printer</option> -->
+      <!-- <option value="t-shirt lange mouw printer|20.27">T-shirt lange mouw printer</option> -->
+      <!-- <option value="polo shirt lange mouw printer|35.94">Polo shirt lange mouw printer</option> -->
+      <option value="softshell printer|79.07">Softshell printer</option>
+      <option value="hemd printer|9.56">Hemd printer</option>
     </select>
 
     <label>Kleur</label>
