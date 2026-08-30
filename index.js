@@ -270,7 +270,7 @@ document.getElementById("confirmSend").addEventListener("click", () => {
     method: "POST",
     body: JSON.stringify(savedData),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "text/plain;charset=utf-8"
     }
   })
   .then(res => res.text())
