@@ -278,8 +278,9 @@ document.getElementById("confirmSend").addEventListener("click", () => {
     document.getElementById("confirmPage").style.display = "none";
     document.getElementById("afterSubmit").style.display = "block";
   })
-  .catch(() => {
-    status.innerText = "Fout bij verzenden";
+  .catch((error) => {
+  console.error("Verzendfout:", error);
+  status.innerText = "Fout bij verzenden: " + error.message;
   });
 });
 
